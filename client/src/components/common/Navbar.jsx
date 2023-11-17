@@ -60,6 +60,12 @@ export const Navbar = () => {
                             <Link key={path} to={path} className='text-black uppercase cursor-pointer hover:text-blue-700'>{link}</Link>
                         )
                     }
+                    {
+                        user && 
+                        <Link to='/log-out' className="relative">
+                            <button className="border border-gray-700 text-red-600 rounded-md px-1">Log out</button>
+                        </Link>
+                    }
                 </ul>
 
                 {/* btn for large device  */}
