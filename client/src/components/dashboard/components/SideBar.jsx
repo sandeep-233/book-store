@@ -14,13 +14,13 @@ export const SideBar = () => {
 
   return (
     <div>
-        <Sidebar aria-label="Sidebar with content separator example">
+        <Sidebar aria-label="Sidebar with content separator example" className='w-full'>
             <Sidebar.Logo href="#" img={user?.photoURL} imgAlt="user img">
                 {
                     user ? (<p>{user?.displayName}</p>) : <p>User Name</p>
                 }
             </Sidebar.Logo>
-            <Sidebar.Items>
+            <Sidebar.Items className='flex md:flex-col justify-around'>
                 <Sidebar.ItemGroup>
                     <Sidebar.Item href="/" icon={HiHome}>
                         Home
@@ -37,8 +37,9 @@ export const SideBar = () => {
                     <Sidebar.Item href="/log-out" icon={HiTable}>
                         Log out
                     </Sidebar.Item>
-                    </Sidebar.ItemGroup>
-                    <Sidebar.ItemGroup>
+                </Sidebar.ItemGroup>
+
+                <Sidebar.ItemGroup>
                     <Sidebar.Item href="#" icon={HiChartPie}>
                         Upgrade to Pro
                     </Sidebar.Item>

@@ -2,17 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { Table } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 
+const BASE_URL = "http://localhost:4000" 
+
 export const ManageBooks = () => {
 
   const [allBooks, setAllBooks] = useState([]);
 
   useEffect( () => {
-    fetch("http://localhost:4000/all-books").then(res => res.json()).then(data => setAllBooks(data));
+    fetch(BASE_URL+"/all-books").then(res => res.json()).then(data => setAllBooks(data));
   } ,[])
 
   // delete a book 
   const handleDelete = (id) => {
-    fetch(`http://localhost:4000/book/${id}`, {
+    fetch(`${BASE_URL}/book/${id}`, {
       method: 'DELETE',
     }).then(res => res.json()).then(data => alert("Book is deleted successfully!"))
   }

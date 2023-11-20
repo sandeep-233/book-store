@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useLoaderData, useParams } from 'react-router-dom'
 import { Button, Checkbox, Label, Select, TextInput, Textarea } from 'flowbite-react';
 
+
+const BASE_URL = "http://localhost:4000"
 export const EditBooks = () => {
 
   const {id} = useParams();
@@ -50,7 +52,7 @@ export const EditBooks = () => {
         }
 
         // console.log(bookObj)
-        fetch(`http://localhost:4000/book/${id}`, {
+        fetch(`${BASE_URL}/book/${id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json"

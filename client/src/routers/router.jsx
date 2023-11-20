@@ -22,6 +22,8 @@ import { Login } from "../components/auth/Login";
 import { PrivateRoute } from "../privateRoute/PrivateRoute";
 import { LogOut } from "../components/auth/LogOut";
 
+const BASE_URL = "http://localhost:4000"
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,23 +48,19 @@ const router = createBrowserRouter([
         {
           path: '/book/:id',
           element: <SingleBook/>,
-          loader: ({params}) => fetch(`http://localhost:4000/book/${params.id}`),
+          loader: ({params}) => fetch(`${BASE_URL}/book/${params.id}`),
         }
     ]
   },
   {
     path: '/admin/dashboard',
-    element: <PrivateRoute>
-        <DashboardLayout/>
-      </PrivateRoute>,
+    element: <DashboardLayout/>,
     children: [
       {
-        path: '/admin/dashboard',
-        element: <Dashboard/>
-      },
-      {
         path: '/admin/dashboard/upload',
-        element: <UploadBook/>
+        element: <PrivateRoute>
+          <UploadBook/>
+        </PrivateRoute>
       },
       {
         path: '/admin/dashboard/manage',
@@ -71,7 +69,7 @@ const router = createBrowserRouter([
       {
         path: '/admin/dashboard/edit-books/:id',
         element: <EditBooks/>,
-        loader: ({params}) => fetch(`http://localhost:4000/book/${params.id}`),
+        loader: ({params}) => fetch(`${BASE_URL}/book/${params.id}`),
       }
     ]
   },

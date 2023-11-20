@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { Card } from 'flowbite-react';
 
+const BASE_URL ="http://localhost:4000"
+
 export const Shop = () => {
 
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/all-books").then(res => res.json()).then(data => setBooks(data));
+    fetch(BASE_URL+"/all-books").then(res => res.json()).then(data => setBooks(data));
   }, [])
 
   return (
@@ -22,12 +24,10 @@ export const Shop = () => {
               className="max-w-sm"
               >
                 <img src={book.imageUrl} alt="" />
+
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {book.bookTitle}
                 </h5>
-                <p className="font-normal text-gray-700 dark:text-gray-400">
-                  {book.bookDescriptions}
-                </p>
 
                 <button className='bg-blue-700 font-semibold text-white py-2 rounded'>
                   Buy Now
