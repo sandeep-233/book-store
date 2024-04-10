@@ -8,7 +8,8 @@
 
 <h2>Project Screenshots:</h2>
 
-<img src="https://repositry-images.vercel.app/static/media/bookStore_img.bf5770ad32f76d19f7d1.png" alt="project-screenshot" width="400" height="400/">
+<img src="https://repositry-images.vercel.app/static/media/bookStore_img.bf5770ad32f76d19f7d1.png" alt="project-screenshot" width="1080"
+  />
 
   
   
